@@ -9,7 +9,7 @@ no_background_image:
   default: false
   description: Disable the background image and tiling settings above.
 
-  show_on:
+show_on:
   default: all
   type: enum
   choices:
