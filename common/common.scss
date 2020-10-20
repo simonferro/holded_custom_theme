@@ -251,7 +251,8 @@ tbody {
   border-radius: 8px;
   width: 75%;
   max-width: 930px;
-  padding: 3em 3em 5%;
+  //   padding: 3em 3em 5%;
+  padding: 2rem 0 !important;
   .archetype-regular & {
     min-height: 500px;
   }
