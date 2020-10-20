@@ -1,0 +1,44 @@
+<script type="text/discourse-plugin" version="0.4">
+  const { iconNode } = require("discourse-common/lib/icon-library");
+      api.decorateWidget('header-icons:before', function (helper) {
+          return helper.h('li', [helper.h('a#home-button', {
+              href: 'https://app.holded.com/',
+              title: 'Platform',
+              text: 'Platform',
+              target: 'blank'
+          })]);
+      });
+</script>
+
+<script>
+  //script for changing the header look when scrolling down
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 1) {
+      $(".d-header").css(
+        "background-color",
+        "rgba(var(--gf-header-bg-rgb), 0.92)"
+      );
+      $(".d-header").css("box-shadow", "0 3px 3px rgba(100, 100, 100, 0.13)");
+      $(".d-header-icons .d-icon").css("color", "black");
+      $("a#home-button").css("border", "2px solid #000000");
+      $("a#home-button").css("color", "#000000");
+      $("#site-logo").attr(
+        "src",
+        "https://discourse-cloud-file-uploads.s3.dualstack.us-west-2.amazonaws.com/standard21/uploads/holdedapp/original/1X/1249d443a5057129d92a980f715966d123d62421.png"
+      );
+    } else {
+      $(".d-header").css("background-color", "transparent");
+      $(".d-header").css("box-shadow", "none");
+      $("a#home-button").css("border", "2px solid #FFFFFF");
+      $("a#home-button").css("color", "#FFFFFF");
+      $(".d-header-icons .d-icon").css("color", "white");
+      $("#site-logo").attr(
+        "src",
+        "https://discourse-cloud-file-uploads.s3.dualstack.us-west-2.amazonaws.com/standard21/uploads/holdedapp/original/1X/01aa92f8be7a941a48dcc1586ca6e651c747e703.png"
+      );
+    }
+  });
+
+  //end
+</script>

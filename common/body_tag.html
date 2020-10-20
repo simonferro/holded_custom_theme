@@ -1,0 +1,47 @@
+<script>
+  function redirectUser(lang) {
+    if (
+      window.location.href == "https://holdedapp.trydiscourse.com/" &&
+      userLang.indexOf("es") > -1
+    ) {
+      document.location.href =
+        "https://holdedapp.trydiscourse.com/c/espanol/13";
+    } else if (
+      window.location.href == "https://holdedapp.trydiscourse.com/" &&
+      userLang.indexOf("en") > -1
+    ) {
+      document.location.href = "https://holdedapp.trydiscourse.com/c/english/6";
+    } else if (
+      window.location.href == "https://holdedapp.trydiscourse.com/" &&
+      userLang.indexOf("fr") > -1
+    ) {
+      document.location.href = "https://holdedapp.trydiscourse.com/c/french/14";
+    }
+  }
+
+  function changeHeroText(lang) {
+    let welcome;
+    let placeholder;
+
+    if (userLang.indexOf("en") > -1) {
+      welcome = "Welcome to the Community";
+      placeholder = "What are you searching for?";
+    } else if (userLang.indexOf("fr") > -1) {
+      welcome = "Bienvenue dans la communauté!";
+      placeholder = "Que cherchez-vous ?";
+    } else {
+      welcome = "Bienvenido a la comunidad";
+      placeholder = "¿Que quieres buscar?";
+    }
+
+    $("#welcome-text").text(welcome);
+    $("#welcome-input").attr("placeholder", placeholder);
+  }
+
+  const userLang = navigator.language || navigator.userLanguage;
+
+  $(document).ready(function () {
+    changeHeroText(userLang);
+    redirectUser(userLang);
+  });
+</script>
